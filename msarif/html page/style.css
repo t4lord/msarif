@@ -1,0 +1,19 @@
+body {
+    background: #472E2E;
+}
+label{
+    color:dimgrey;
+         
+}
+input{
+    color:brown
+}
+
+#content{
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+td:hover{
+    background-color:#428bca  
+}
