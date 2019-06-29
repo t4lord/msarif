@@ -1,46 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Income</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4 pageCenter" id="content" >
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr><th style="text-align: right">الــدخـــل</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>  
-                                    <input class="form-control input-md" type="text" placeholder="الراتب" style="text-align: center">                           
-                            </td></tr>
-                            <tr><td>
-                                    <input class="form-control input-md" type="text" placeholder="دخل آخر" style="text-align: center">
-                            </td></tr>
-                            <tr><td>
-                                    <input class="form-control input-md" type="month" placeholder="التاريخ"  style="text-align: center">
-                            </td></tr>
-                        </tbody>
-                    </table>
+{% extends 'msarif/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+            <div class="col-md-4 pageCenter" id="content" >
+            {{title}}
+            <form method="POST">
+                {% csrf_token %}
+                {{ salaryForm.as_p }}
+                <div class="col-md-4 ">
+                    <a href="{% url 'home' %}"><button type="submit" class="btn btn-primary btn-block btn-md glyphicon glyphicon-ok"> حفظ </button></a>
                 </div>
-                <div class="col-md-4"></div>
+            </form>       
             </div>
-            <hr style="height:3px; color:#286090; background-color:#286090;">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                        <a href="{% url 'home' %}"><button type="button" class="btn btn-primary btn-block btn-md glyphicon glyphicon-ok"> حفظ </button></a>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
+            <div class="col-md-4"></div>
         </div>
-    </body>
-</html>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr style="height:3px; color:#286090; background-color:#286090;">
+        <h3>{{date.date}}</h3>
+    </div>
+</div>
+{% endblock %}
